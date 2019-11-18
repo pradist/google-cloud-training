@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guest-book
+  labels:
+    app: guest-book
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guest-book
+  template:
+    metadata:
+      labels:
+        app: guest-book
+    spec:
+      containers:
+        - name: guest-book
+          image: pradiske/guestbook:1.0.0
+          env:
+            - name: DEMO_GREETING
+              value: "Hello GuestBook."
+            - name: DATABASE_URL
+              value: "mongodb://mongo-service:27017"
+          ports:
+            - containerPort: 8000
