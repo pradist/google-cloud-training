@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: guest-book
-          image: pradiske/guestbook:1.0.0
+          image: pradiske/guest-book:1.0.1
           env:
             - name: DEMO_GREETING
               value: "Hello GuestBook."
